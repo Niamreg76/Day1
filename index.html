@@ -3,115 +3,350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>UIFry Project Management</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>UIFry SaaS Landing Page</title>
+    <style>
+        :root {
+            --primary-color: #28a263;
+            --secondary-color: #c0f497;
+            --background-color: #000;
+            --text-color: #fff;
+            --text-color-muted: #a1a1a1;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+        
+        .saas-landing-page {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .navigation {
+            padding: 1rem 2rem;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo-menu-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .logo {
+            width: 34px;
+            height: auto;
+        }
+        
+        .menu-items {
+            display: flex;
+            list-style-type: none;
+            gap: 1rem;
+        }
+        
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .dropdown-icon {
+            width: 12px;
+            height: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .cta-button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta-button-primary {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+        }
+        
+        .cta-button-secondary {
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: 1px solid var(--secondary-color);
+        }
+        
+        .hero-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .hero-content {
+            max-width: 50%;
+        }
+        
+        .rating-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .star-icons {
+            display: flex;
+        }
+        
+        .star-icon {
+            width: 20px;
+            height: auto;
+        }
+        
+        .rating-text {
+            font-size: 0.875rem;
+            color: var(--text-color-muted);
+        }
+        
+        .hero-heading {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-color-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .cta-form {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-text {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--primary-color);
+        }
+        
+        .cta-separator {
+            width: 1px;
+            height: 20px;
+            background-color: var(--primary-color);
+        }
+        
+        .cta-button-main {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .partner-logos {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .partner-logo {
+            max-width: 100px;
+            height: auto;
+        }
+        
+        .hero-image-container {
+            position: relative;
+            width: 45%;
+        }
+        
+        .hero-image-background {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .hero-card {
+            background-color: #1b1b1b;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            margin-left: auto;
+        }
+        
+        .hero-card-top {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-card-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .hero-card-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+        
+        .hero-card-info {
+            flex-grow: 1;
+        }
+        
+        .hero-card-amount {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .hero-card-text {
+            font-size: 0.875rem;
+            color: var(--text-color-muted);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-content,
+            .hero-image-container {
+                max-width: 100%;
+                width: 100%;
+            }
+            
+            .hero-image-container {
+                margin-top: 2rem;
+            }
+            
+            .hero-card {
+                margin: 0 auto;
+            }
+            
+            .cta-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .partner-logos {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
-        <div class="container-fluid">
-            <a class="navbar-brand text-success" href="#">🔥 UIFry</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">About UIFry?</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Resources</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Company</a>
-                    </li>
-                </ul>
-                <div class="d-flex">
-                    <a href="#" class="btn btn-outline-success me-2">Contact Sales</a>
-                    <a href="#" class="btn custom-btn-success">Get Demo</a>
+    <div class="saas-landing-page">
+        <header class="navigation">
+            <nav class="nav-container">
+                <div class="logo-menu-wrapper">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4662a8ba2175ffe843b2d252daf7cd074ba353ec604dc38b7a6ad45becb1f97a?placeholderIfAbsent=true&apiKey=21cadd99efdf447c8127764696dc35ed" alt="UIFry Logo" class="logo">
+                    <ul class="menu-items">
+                        <li class="menu-item">
+                            <span>About UIFry?</span>
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/015c203a761f96032241558dc5a2254a25d95d9cf7ca10f8fd0da588adca185a?placeholderIfAbsent=true&apiKey=21cadd99efdf447c8127764696dc35ed" alt="" class="dropdown-icon">
+                        </li>
+                        <li class="menu-item">
+                            <span>Features</span>
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/015c203a761f96032241558dc5a2254a25d95d9cf7ca10f8fd0da588adca185a?placeholderIfAbsent=true&apiKey=21cadd99efdf447c8127764696dc35ed" alt="" class="dropdown-icon">
+                        </li>
+                        <li class="menu-item">
+                            <span>Resources</span>
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/015c203a761f96032241558dc5a2254a25d95d9cf7ca10f8fd0da588adca185a?placeholderIfAbsent=true&apiKey=21cadd99efdf447c8127764696dc35ed" alt="" class="dropdown-icon">
+                        </li>
+                        <li class="menu-item">
+                            <span>Company</span>
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/015c203a761f96032241558dc5a2254a25d95d9cf7ca10f8fd0da588adca185a?placeholderIfAbsent=true&apiKey=21cadd99efdf447c8127764696dc35ed" alt="" class="dropdown-icon">
+                        </li>
+                    </ul>
                 </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-section d-flex align-items-center text-light py-5">
-        <div class="container d-flex justify-content-between align-items-center">
+                <div class="cta-buttons">
+                    <button class="cta-button cta-button-secondary">Get Demo</button>
+                    <button class="cta-button cta-button-primary">Contact Sales</button>
+                </div>
+            </nav>
+        </header>
+        <main class="hero-section">
             <div class="hero-content">
-                <div class="rating mb-3">⭐⭐⭐⭐⭐ Based on 10,000+ reviews</div>
-                <h1 class="display-3 txt-jolie">Seamless solution <br> with our magic!</h1>
-                <p class="lead my-4">UIFry is the project management platform that aims for teams to<br> achieve an efficient dream management.</p>
-                <p class="lead my-4 text-success">Start work efficiently with<br> UIFry SaaS product</p>
-                <a href="#" class="btn custom-btn-success btn-lg text-light">Get a Free Demo</a>
-                <div class="partner-logos mt-5 d-flex gap-3">
-                    <img src="logoipsum1.png" alt="Partner 1" class="img-fluid" width="100">
-                    <img src="logoipsum2.png" alt="Partner 2" class="img-fluid" width="100">
-                    <img src="logoipsum3.png" alt="Partner 3" class="img-fluid" width="100">
+                <div class="rating-container">
+                    <div class="star-icons">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/07caf17c38b278391a460df03ff3ada9ff4429f34d2a3cd6a5198678cb43ef7b?placeholderIfAbsent=true&apiKey=21cadd99efdf447c8127764696dc35ed" alt="Star rating" class="star-icon">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/07caf17c38b278391a460df03ff3ada9ff4429f34d2a3cd6a5198678cb43ef7b?placeholderIfAbsent=true&apiKey=21cadd99efdf447c8127764696dc35ed" alt="Star rating" class="star-icon">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/07caf17c38b278391a460df03ff3ada9ff4429f34d2a3cd6a5198678cb43ef7b?placeholderIfAbsent=true&apiKey=21cadd99efdf447c8127764696dc35ed" alt="Star rating" class="star-icon">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/07caf17c38b278391a460df03ff3ada9ff4429f34d2a3cd6a5198678cb43ef7b?placeholderIfAbsent=true&apiKey=21cadd99efdf447c8127764696dc35ed" alt="Star rating" class="star-icon">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/07caf17c38b278391a460df03ff3ada9ff4429f34d2a3cd6a5198678cb43ef7b?placeholderIfAbsent=true&apiKey=21cadd99efdf447c8127764696dc35ed" alt="Star rating" class="star-icon">
+                    </div>
+                    <p class="rating-text">Based on <span>10,000+</span> reviews</p>
+                </div>
+                <h1 class="hero-heading">Seamless solution with our magic!</h1>
+                <p class="hero-description">UIFry is the project management platform that aims for teams to achieve an efficient dream management</p>
+                <form class="cta-form">
+                    <div class="cta-text">
+                        <span class="cta-separator"></span>
+                        <p>Start work efficiently with UIFry SaaS product</p>
+                    </div>
+                    <button type="submit" class="cta-button cta-button-main cta-button-primary">Get a Free Demo</button>
+                </form>
+                <div class="partner-logos">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9cff40df5cc6032958ac2dc31ad82c7a06908cdec0fd117ab6380bb1107cb6e?placeholderIfAbsent=true&apiKey=21cadd99efdf447c8127764696dc35ed" alt="Partner logo" class="partner-logo">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b255702310c494e92eda49116eb368c537822649d0804d2c8f218d7be5ea61ad?placeholderIfAbsent=true&apiKey=21cadd99efdf447c8127764696dc35ed" alt="Partner logo" class="partner-logo">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/81991b48535e991610d32b158a10b4b03115197d60893989a8601edc93c8f601?placeholderIfAbsent=true&apiKey=21cadd99efdf447c8127764696dc35ed" alt="Partner logo" class="partner-logo">
                 </div>
             </div>
-            <div class="hero-illustration">
-                <div class="bg-dark text-success p-4 rounded mb-3 widget-box">
-                    <h2>$5476</h2>
-                    <p>Spending This Week</p>
+            <div class="hero-image-container">
+                <div class="hero-image-background"></div>
+                <div class="hero-card">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f3f6511a75605c0523384acdee2dec78dc9f3e65b90d4da6f8605d174438905f?placeholderIfAbsent=true&apiKey=21cadd99efdf447c8127764696dc35ed" alt="Dashboard preview" class="hero-card-top">
+                    <div class="hero-card-content">
+                        <div class="hero-card-icon"></div>
+                        <div class="hero-card-info">
+                            <p class="hero-card-amount">$5,476</p>
+                            <p class="hero-card-text">Spending This Week</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="d-flex gap-3">
-                    <img src="widget1.png" alt="Widget 1" class="img-fluid" width="100">
-                    <img src="avatar1.png" alt="Avatar 1" class="rounded-circle" width="50">
-                    <img src="avatar2.png" alt="Avatar 2" class="rounded-circle" width="50">
-                    <img src="avatar3.png" alt="Avatar 3" class="rounded-circle" width="50">
-                </div>
             </div>
-        </div>
-    </section>
-    <section2 style="background-color: linear-gradient(180deg, #0F0F0F 0%, #1C1C1C 100%);" class="bg-dark hero">
-        <div style="display: flex; justify-content: space-between!important; margin-left: 100px; margin-right: 100px;">
-            <h2 style="background-color: #0F0F0F; color: white; ">Choose from over 10+<br> cutting—edge products</h2>
-            <button style="border-radius: 99px; margin-left: 1000px;" class="btn btn-outline-light">See all products</button>
-        </div>
-    </section2>
-    <div class="card-carrousel" style="display: flex; margin-left: 60px; justify-content: space-between;">
-        <div class="card" style="width: 300px; height: 380px; margin-right: -20px; border-radius: 24px; top: 109px; left: 77px">
-            <div class="card-body">
-              <span class="dot" style="margin-left: 20%"></span>
-              <h5 class="card-title">Product title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Short description goes here</p>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <img src=
-              <h5 class="card-title">Product title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Short description goes here</p>
-            </div>
-          </div>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Product title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Short description goes here</p>
-            </div>
-          </div>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Product title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Short description goes here</p>
-            </div>
-          </div>
+        </main>
     </div>
-    
-    <section4>
-	<h2 style="margin-left: 35%; margin-right: 35%">Most popular<br>
-integration apps </h2>
-	<button>See all apps</button>
-    </section4>
 </body>
 </html>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
