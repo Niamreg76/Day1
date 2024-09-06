@@ -108,3 +108,10 @@ h1 .highlight {
     height: 50px;
     border-radius: 50%;
 }
+.dot {
+    height: 136.35px;
+    width: 136.35px;
+    background-color: #C0F497;
+    border-radius: 50%;
+    display: inline-block;
+  }
